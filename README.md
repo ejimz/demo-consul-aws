@@ -11,7 +11,7 @@ This repository aims to provides a way to create and install a consul and vault 
 
 ### Assumptions
 
-* We dont create clients to connect to the consul cluster in this demo, we assume that ECS instances will connect directly to the consul cluster using envconsul.
+* We dont create clients to connect to the consul cluster in this demo, we assume that ECS instances will connect directly to the consul cluster using envconsul + consul connect.
 * We have enabled by default the public ip for each server, it's obviosly wrong for a production environment but we setup in that way to ease the demo of the exercise.
 * The security groups are ready to receive requests from all the networks, in a production scenario we must remove the "0.0.0.0/0" rule from the security group module in terraform and add the subnet allowed 
 in the network.
@@ -38,7 +38,6 @@ Clients will use Consul as DNS server to discover Vault servers.
 It's not possible create a multi master cluster between regions with Consul due to a leader would never be elected, so instead we can create a master-slave architecture using "consul-replicate" (https://github.com/hashicorp/consul-replicate).
 
 "consul-replicate" daemon will be able to perform cross region K/B replication with low-latency asynchronous replication to other aws regions.
-
 
 ## Installation steps
 
@@ -113,7 +112,7 @@ terraform plan -out "terrafom.plan"
 terraform apply "terraform.plan"
 ```
 
-## Initialize Vault cluster
+# Initialize Vault cluster
 
 ### Initialize
 ssh to one vault server and run
