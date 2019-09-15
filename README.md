@@ -43,7 +43,11 @@ It's not possible create a multi master cluster between regions with Consul due 
 
 ## Installation steps
 
-### AWS credentials
+
+
+### Prepare environmen
+
+#### AWS credentials
 
 ```
 export AWS_ACCESS_KEY_ID=XXX
@@ -52,7 +56,9 @@ export AWS_DEFAULT_REGION=XXX
 
 ```
 
-### Prepare environment
+#### Modify backend.tf
+
+modify the backend.tf file adding the aws region and the s3 bucket name for the terraform state.
 
 #### VPC
 
