@@ -1,4 +1,4 @@
-# demo consul AWS
+# Demo consul AWS
 
 This repository aims to provides a way to create and install a consul and vault clusters in AWS using terraform.
 
@@ -6,7 +6,7 @@ This repository aims to provides a way to create and install a consul and vault 
 
 * We dont create clients to connect to the consul cluster in this demo, we assume that ECS instances will connect directly to the consul cluster using envconsul.
 * We have enabled by default the public ip for each server, it's obviosly wrong for a production environment but we setup in that way to ease the demo of the exercise.
-* The security groups are ready to receive requests from all the network, in a production scenario we must remove the "0.0.0.0/0" rule from the security group module in terraform and add the subnet allowed 
+* The security groups are ready to receive requests from all the networks, in a production scenario we must remove the "0.0.0.0/0" rule from the security group module in terraform and add the subnet allowed 
 in the network.
 
 # Architecture
@@ -15,7 +15,7 @@ This demo creates a private Consul and Vault cluster. the Consul cluster is read
 The Vault cluster will use Consul as storage backend. 
 
 By default the clusters are created with 3 EC2 instances each, we recommend 3 or 5 instances in order to maintain the quorum in the cluster. We create 1 Autoscaling group
-for each cluster in order to ensure the instance number created and also share the instances between the availability zones enabled in our VPC subnets.
+for each cluster in order to ensure the number of instances created and also share the instances between the availability zones enabled in our VPC subnets.
 
 With the Auto Scaling Group we ensure the high availability of the clusters, sharing the instances between the availability zones enabled in our VPC and also recreating the 
 instances in case of failures or termination.
@@ -38,17 +38,17 @@ export AWS_DEFAULT_REGION=XXX
 
 ### VPC
 
-For this demo we assume that we will have a VPC already created with subnets in differents region zones (terraform will share the instances between that zones).
+For this demo we assume that we will have a VPC already created with subnets in differents availability zones (terraform will share the instances between that zones).
 
 ### Install Packer
 
 Download and install packer from https://www.packer.io
 
-It's necessary for create the consul AMI
+It's necessary to create the consul AMI
 
 ### Install Terraform
 
-Download and install terraform from https://www.terraform.io/
+Download and install terraform from https://www.terraform.io
 
 The terraform version must be 0.12 or higher.
 
@@ -69,11 +69,11 @@ Run this command to create the AMI:
 packer build -only ubuntu18-ami vault-consul-am/vault-consul.json
 ```
 
-it will output the AMIs IDs necessary to create the consul cluster, we'll put it in the "ami_id" variable in terraform.tfvars file.
+it will output the AMI ID necessary to create the consul cluster, we'll put it in the "ami_id" variable in terraform.tfvars file.
 
 ## Create the variables file
 
-Create the terraform.tfvars file filling the proper variables content
+Create the terraform.tfvars file with the proper content.
 
 ```
 ami_id = "ami-XXX"
