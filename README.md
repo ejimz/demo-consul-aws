@@ -4,9 +4,11 @@ This repository aims to provides a way to create and install a consul and vault 
 
 # Table of Contents
 1. [Assumptions](#Assumptions)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+2. [Architecture](#architecture)
+3. [Multi region architecture](#multi-region-architecture)
+4. [Installation steps](#installation-steps)
+5. [Initialize vault cluster](#initialize-vault-cluster
+)
 
 
 ### Assumptions
