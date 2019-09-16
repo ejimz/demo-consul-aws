@@ -37,7 +37,7 @@ Clients will use Consul as DNS server to discover Vault servers.
 
 It's not possible create a multi master cluster between regions with Consul due to a leader would never be elected, so instead we can create a master-slave architecture using "consul-replicate" (https://github.com/hashicorp/consul-replicate).
 
-"consul-replicate" daemon will be able to perform cross region K/B replication with low-latency asynchronous replication to other aws regions.
+"consul-replicate" daemon will be able to perform cross region K/V replication with low-latency asynchronous replication to other aws regions.
 
 ## Installation steps
 
