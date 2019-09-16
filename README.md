@@ -5,10 +5,8 @@ This repository aims to provides a way to create and install a consul and vault 
 # Table of Contents
 1. [Assumptions](#Assumptions)
 2. [Architecture](#architecture)
-3. [Multi region architecture](#multi-region-architecture)
-4. [Installation steps](#installation-steps)
-5. [Initialize vault cluster](#initialize-vault-cluster
-)
+3. [Installation steps](#installation-steps)
+4. [Initialize vault cluster](#initialize-vault-cluster)
 
 
 ### Assumptions
@@ -35,7 +33,7 @@ Clients will use Consul as DNS server to discover Vault servers.
 
 ![Schema](.docs/arch.png)
 
-## Multi region architecture
+### Multi region architecture
 
 It's not possible create a multi master cluster between regions with Consul due to a leader would never be elected, so instead we can create a master-slave architecture using "consul-replicate" (https://github.com/hashicorp/consul-replicate).
 
@@ -43,9 +41,7 @@ It's not possible create a multi master cluster between regions with Consul due 
 
 ## Installation steps
 
-
-
-### Prepare environmen
+### Prepare environment
 
 #### AWS credentials
 
