@@ -1,7 +1,3 @@
-# ----------------------------------------------------------------------------------------------------------------------
-# REQUIRE A SPECIFIC TERRAFORM VERSION OR HIGHER
-# This module has been updated with 0.12 syntax, which means it is no longer compatible with any versions below 0.12.
-# ----------------------------------------------------------------------------------------------------------------------
 terraform {
   required_version = ">= 0.12"
 }
@@ -11,9 +7,6 @@ terraform {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "vault_cluster" {
-  # When using these modules in your own templates, you will need to use a Git URL with a ref attribute that pins you
-  # to a specific version of the modules, such as the following example:
-  # source = "github.com/hashicorp/terraform-aws-vault.git/modules/vault-cluster?ref=v0.0.1"
   source = "./modules/vault-cluster"
 
   cluster_name  = var.vault_cluster_name
@@ -45,7 +38,6 @@ module "vault_cluster" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "consul_iam_policies_servers" {
-#  source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-iam-policies?ref=v0.7.0"
   source = "./modules/consul-iam-policies"
 
   iam_role_id = module.vault_cluster.iam_role_id
@@ -73,7 +65,6 @@ data "template_file" "user_data_vault_cluster" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "security_group_rules" {
-#  source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-client-security-group-rules?ref=v0.7.0"
   source = "./modules/consul-client-security-group-rules"
 
   security_group_id = module.vault_cluster.security_group_id
@@ -89,7 +80,6 @@ module "security_group_rules" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "consul_cluster" {
-  #source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-cluster?ref=v0.7.0"
   source = "./modules/consul-cluster"
 
 cluster_name  = var.consul_cluster_name
