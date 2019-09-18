@@ -21,8 +21,7 @@ in the network.
 This demo creates a private Consul and Vault cluster. the Consul cluster is ready to receive request from external clients (for example a ECS cluster).
 The Vault cluster will use Consul as storage backend. 
 
-By default the clusters are created with 3 EC2 instances each, we recommend 3 or 5 instances in order to maintain the quorum in the cluster. We create 1 Autoscaling group
-for each cluster in order to ensure the number of instances created and also share the instances between the availability zones enabled in our VPC subnets.
+By default the clusters are created with 3 EC2 instances each, we recommend 3 or 5 instances in order to maintain the quorum in the cluster. We create 1 Autoscaling group for each cluster in order to ensure the number of instances created and also share the instances between the availability zones enabled in our VPC subnets.
 
 With the Auto Scaling Group we ensure the high availability of the clusters, sharing the instances between the availability zones enabled in our VPC and also recreating the 
 instances in case of failures or termination.
@@ -54,7 +53,7 @@ export AWS_DEFAULT_REGION=XXX
 
 #### Modify backend.tf
 
-modify the backend.tf file adding the aws region and the s3 bucket name for the terraform state.
+Modify the backend.tf file adding the aws region and the s3 bucket name for the terraform state.
 
 #### VPC
 
